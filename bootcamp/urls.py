@@ -17,17 +17,21 @@ from django.contrib import admin
 from django.urls import path, re_path
 
 from products.views import(
+    # bad_view,
     product_list_view,
-    home_view,
+    search_view,
+    product_create_view,
     product_detail_view,
     product_api_detail_view
 )
 
 urlpatterns = [
-    path('search/', home_view),
+    #path('bad-view-dont-use/', bad_view),
+    path('search/', search_view),
     #path('products/1/', views.product_detail_view),
     path('products/<int:pk>/', product_detail_view),
     path('products/', product_list_view),
+    path('products/create/', product_create_view),
     #re_path(r'api/products/<?P<pk>\d+>/', views.product_api_detail_view),
     path('admin/', admin.site.urls),
 ]
