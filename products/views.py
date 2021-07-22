@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.http import HttpResponse, HttpResponseRedirect, Http404, JsonResponse
 from django.shortcuts import render, redirect
 
@@ -35,12 +37,14 @@ def search_view(request, *args, **kwargs):
 #                 title_from_input = my_form.cleaned_data.get("title")
 #                 Product.objects.create(title=title_from_input)
 #     return render(request, "forms.html", {})
+
+@staff_member_required
 def product_create_view(request, *args, **kwargs):
     form = ProductModelForm(request.POST or None)
     if form.is_valid():
         obj = form.save(commit=False)
         # do some stuff
-        # obj.user = request.user (example)
+        obj.user = request.user
         obj.save()
 
         # print(request.POST)
