@@ -23,4 +23,5 @@ class Order(models.Model):
     total = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     paid = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     shipping_address = models.TextField(blank=True, null=True)
+    billing_address = models.TextField(blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True) #automatically added datetime object when model is created
