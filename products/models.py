@@ -15,5 +15,5 @@ class Product(models.Model):
     inventory = models.IntegerField(default=0)
     featured = models.BooleanField(default=False)
 
-def has_inventory(self):
-    return self.inventory > 0
+    def has_inventory(self):
+        return self.inventory > 0
