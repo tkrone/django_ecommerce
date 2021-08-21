@@ -22,9 +22,7 @@ from accounts.views import(
     register_view
 )
 
-from orders.views import(
-    order_checkout_view
-)
+from orders.views import order_checkout_view
 
 from products.views import(
     # bad_view,
